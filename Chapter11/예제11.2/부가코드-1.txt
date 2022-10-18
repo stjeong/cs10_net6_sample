@@ -1,0 +1,34 @@
+﻿
+/* ================= 11.3 using static 구문을 이용한 타입명 생략 ================= */
+
+using System;
+using System.Net;
+using System.Text;
+using static System.Console;
+using static UriExtension;
+
+static class UriExtension
+{
+    public static string TextFromUrl(this Uri uri)
+    {
+        WebClient wc = new WebClient();
+        wc.Encoding = Encoding.UTF8;
+        return wc.DownloadString(uri);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Uri uri = new Uri("http://www.naver.com");
+
+        WriteLine(uri.TextFromUrl()); // 확장 메서드로서 정상적으로 컴파일됨
+
+        // WriteLine(TextFromUrl(uri)); // 컴파일 에러
+                                     // static 멤버임에도 "using static UriExtension" 구문이 적용되지 않음
+
+        WriteLine(UriExtension.TextFromUrl(uri)); // 정상적으로 컴파일
+                                                  // 확장 메서드를 static 호출로 사용하려면 반드시 타입명을 지정
+    }
+}

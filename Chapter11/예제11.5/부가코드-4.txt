@@ -1,0 +1,23 @@
+﻿
+/* ================= 11.12 재정의된 메서드의 선택 정확도를 향상 ================= */
+
+using System;
+
+// 이 소스코드는 C# 5.0 이전 버전에서 컴파일 오류 발생
+// C# 6.0부터 정상적으로 컴파일
+
+using System.Threading.Tasks;
+
+class Program
+{
+    static Task NullTask()
+    {
+        Console.WriteLine("NullTask");
+        return null;
+    }
+
+    static void Main()
+    {
+        Task.Run(NullTask); // C# 5.0 이전에는 컴파일 오류
+    }
+}

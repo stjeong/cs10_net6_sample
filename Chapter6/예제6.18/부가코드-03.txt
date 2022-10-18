@@ -1,0 +1,16 @@
+﻿
+/* ================= 6.5.3 System.IO.Directory / System.IO.DirectoryInfo ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        foreach (string txt in Directory.GetLogicalDrives())
+        {
+            Console.WriteLine(txt);
+        }
+    }
+}

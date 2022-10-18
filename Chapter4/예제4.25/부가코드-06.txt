@@ -1,0 +1,39 @@
+﻿
+/* ================= 4.5.1.5 구조체 - 깊은 복사와 얕은 복사 ================= */
+
+using System;
+
+struct Vector
+{
+    public int X;
+    public int Y;
+}
+
+class Point
+{
+    public int X;
+    public int Y;
+}
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Vector v1;
+
+            v1.X = 5;
+            v1.Y = 10;
+
+            Vector v2 = v1; // 값 형식의 대입
+
+            Point pt1 = new Point();
+
+            pt1.X = 6;
+            pt1.Y = 12;
+
+            Point pt2 = pt1; // 참조 형식의 대입
+        }
+    }
+}

@@ -1,0 +1,26 @@
+﻿
+using System;
+
+/* ================= 3.5.3.2 continue 문 ================= */
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int sum = 0;
+            int n = 1;
+
+            while (n++ <= 1000)
+            {
+                if ((n % 2) != 0) continue;
+                if ((n % 3) != 0) continue;
+                if ((n % 5) != 0) continue;
+                sum += n;
+            }
+
+            Console.WriteLine(sum);
+        }
+    }
+}

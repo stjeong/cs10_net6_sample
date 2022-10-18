@@ -1,0 +1,26 @@
+﻿
+/* ================= 8.8.1 코드로서의 람다 식 ================= */
+
+using System;
+using System.Threading;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Thread thread = new Thread(
+                delegate (object obj)
+                {
+                    Console.WriteLine("ThreadFunc in anonymous method called!");
+                });
+
+            Thread thread2 = new Thread(
+                (obj) =>
+                {
+                    Console.WriteLine("ThreadFunc in anonymous method called!");
+                });
+        }
+    }
+}

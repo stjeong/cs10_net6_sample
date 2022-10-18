@@ -1,0 +1,14 @@
+﻿
+/* ================= 6.9.1 AppDomain과 Assembly ================= */
+
+using System;
+using System.Reflection;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        AppDomain newAppDomain = AppDomain.CreateDomain("MyAppDomain");
+        AppDomain currentDomain = AppDomain.CurrentDomain;
+    }
+}

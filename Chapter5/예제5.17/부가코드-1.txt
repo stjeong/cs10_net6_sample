@@ -1,0 +1,60 @@
+﻿
+/* ================= 5.3.6 올바른 예외 처리 ================= */
+
+using System;
+
+class Program
+{
+    static bool LogText(string txt)
+    {
+        if (txt == null)
+        {
+            return false; // 잘못된 txt 인자이므로 false를 반환
+        }
+
+        Console.WriteLine(txt.ToUpper());
+        return true; // 정상적으로 동작했다는 의미에서 true를 반환
+    }
+
+    static void LogTextWithException(string txt)
+    {
+        if (txt == null)
+        {
+            // txt 인자가 null이면 안 되므로 예외가 발생
+            throw new ArgumentNullException("txt");
+        }
+
+        Console.WriteLine(txt.ToUpper());
+    }
+
+    static void Main(string[] args)
+    {
+        string aText = null;
+        if (LogText(aText) == false)
+        {
+            return;
+        }
+
+        string bText = null;
+        if (LogText(bText) == false)
+        {
+            return;
+        }
+
+        string cText = null;
+        if (LogText(cText) == false)
+        {
+            return;
+        }
+
+        try
+        {
+            LogTextWithException(aText); // 여기서 예외가 발생하면 곧바로 catch 문으로 이동
+            LogTextWithException(bText); // 여기서 예외가 발생해도 곧바로 catch 문으로 이동
+            LogTextWithException(cText);
+        }
+        catch (ArgumentNullException)
+        {
+        }
+    }
+}

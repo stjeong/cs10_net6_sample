@@ -1,0 +1,21 @@
+﻿
+/* ================= 11.8 예외 필터 ================= */
+
+using System;
+using System.IO;
+class Program
+{
+    static void Main(string[] args)
+    {
+        string filePath = @"c:\temp\test.txt";
+
+        try
+        {
+            string txt = File.ReadAllText(filePath);
+        }
+        catch (FileNotFoundException e)
+        {
+            Console.WriteLine(e.ToString());
+        }
+    }
+}

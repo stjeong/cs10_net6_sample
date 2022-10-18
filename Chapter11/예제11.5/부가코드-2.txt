@@ -1,0 +1,13 @@
+﻿
+/* ================= 11.11 #pragma의 "CS" 접두사 지원 ================= */
+
+// #pragma warning disable 0168
+#pragma warning disable CS0168
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int i; // 경고 CS0168: 'i' 변수가 선언되었지만 사용되지 않았습니다.
+    }
+}

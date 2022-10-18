@@ -1,0 +1,33 @@
+﻿
+/* ================= 4.3.5 base ================= */
+
+using System;
+
+public class Computer
+{
+    bool powerOn;
+    public void Boot() { }
+    public void Shutdown() { }
+    public void Reset() { }
+}
+
+public class Notebook : Computer
+{
+    bool fingerScan;
+    public bool HasFingerScanDevice() { return fingerScan; }
+
+    public void CloseLid()
+    {
+        base.Shutdown(); // base 예약어를 명시
+    }
+}
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}

@@ -1,0 +1,26 @@
+﻿
+/* ================= 5.3.3 호출 스택 ================= */
+
+// 반드시 Debug 모드로 빌드해야 의도한 실습을 할 수 있다.
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        HasNoProblem();
+        HasProblem(); // NullReferenceException 발생
+    }
+    private static void HasNoProblem()
+    {
+        WriteText("Argument is not NULL");
+    }
+    private static void HasProblem()
+    {
+        WriteText(null); // NullReferenceException 발생
+    }
+    private static void WriteText(string txt)
+    {
+        Console.WriteLine(txt.ToLower());
+    }
+}

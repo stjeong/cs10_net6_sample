@@ -1,0 +1,13 @@
+﻿
+/* ================= 5.1.1.3 리터럴에도 적용되는 타입 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(5.ToString() + 6.ToString()); // 출력 결과: 56
+        Console.WriteLine("test".ToUpper()); // 출력 결과: TEST
+    }
+}

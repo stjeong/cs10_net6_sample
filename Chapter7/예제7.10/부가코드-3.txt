@@ -1,0 +1,27 @@
+﻿
+/* ================= 8.2 자동 구현 속성 ================= */
+
+using System;
+
+/*
+class Person
+{
+    string _name;
+    public string Name { get { return _name; } set { _name = value; } }
+}
+*/
+
+class Person
+{
+    public string Name { get; set; }
+    // public string Name { get; protected set; }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person person = new Person();
+        person.Name = "My";
+    }
+}

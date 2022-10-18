@@ -1,0 +1,47 @@
+﻿/* ================= 5.1.1.4 특성 - 다중 적용과 상속 ================= */
+
+using System;
+using System.Runtime.InteropServices;
+
+[AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
+class AuthorAttribute : System.Attribute
+{
+    string name;
+    public AuthorAttribute(string name)
+    {
+        this.name = name;
+    }
+
+    int _version;
+    public int Version
+    {
+        get { return _version; }
+        set { _version = value; }
+    }
+}
+
+[Flags]
+[Author("Anders")]
+enum Days
+{
+    Sunday = 1, Monday = 2, Tuesday = 4,
+    Wednesday = 8, Thursday = 16, Friday = 32, Saturday = 64
+}
+
+/*
+[Flags, Author("Anders")]
+enum Days
+{
+    Sunday = 1, Monday = 2, Tuesday = 4,
+    Wednesday = 8, Thursday = 16, Friday = 32, Saturday = 64
+}
+*/
+
+[Author("Anders", Version = 1)]
+[Author("Brad", Version = 2)]
+class Program
+{
+    static void Main(string[] args)
+    {
+    }
+}

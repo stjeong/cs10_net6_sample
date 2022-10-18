@@ -1,0 +1,25 @@
+﻿
+using System;
+
+/* ================= 3.5.2.5 while 문 ================= */
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /* do/while 문을 이용한 경우 */
+
+            int sum = 0;
+            int n = 0; // 초깃값이 0으로 변경됨
+
+            do
+            {
+                if (n % 2 == 0) sum += n;
+            } while (++n <= 1000);
+
+            Console.WriteLine(sum);
+        }
+    }
+}

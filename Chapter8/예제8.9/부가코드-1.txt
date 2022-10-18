@@ -1,0 +1,36 @@
+﻿
+/* ================= 8.8.1.2 컬렉션과 람다 식 ================= */
+
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class Person
+{
+    public int Age;
+    public string Name;
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<int> list = new List<int> { 3, 1, 4, 5, 2 };
+
+        {
+            IEnumerable<double> doubleList = list.Select((elem) => (double)elem);
+            Array.ForEach(doubleList.ToArray(), (elem) => { Console.WriteLine(elem); });
+        }
+
+        Console.WriteLine();
+
+        IEnumerable<Person> personList = list.Select(
+        (elem) => new Person { Age = elem, Name = Guid.NewGuid().ToString() });
+        Array.ForEach(personList.ToArray(), (elem) => { Console.WriteLine(elem.Name); });
+
+        Console.WriteLine();
+
+        var itemList = list.Select((elem) => new { TypeNo = elem, CreatedDate = DateTime.Now.Ticks });
+        Array.ForEach(itemList.ToArray(), (elem) => { Console.WriteLine(elem.TypeNo); });
+    }
+}

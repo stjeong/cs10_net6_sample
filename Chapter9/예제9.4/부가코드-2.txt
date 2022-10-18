@@ -1,0 +1,40 @@
+﻿
+/* ================= 9.2.2 덕 타이핑 ================= */
+
+using System;
+using System.Reflection;
+
+interface IBird
+{
+    void Fly();
+}
+
+class Duck : IBird
+{
+    public void Fly()
+    {
+        Console.WriteLine("Duck fly");
+    }
+}
+
+class Goose : IBird
+{
+    public void Fly()
+    {
+        Console.WriteLine("Goose fly");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        StrongTypeCall(new Duck());
+        StrongTypeCall(new Goose());
+    }
+
+    static void StrongTypeCall(IBird bird)
+    {
+        bird.Fly();
+    }
+}

@@ -1,0 +1,25 @@
+﻿
+/* ================= 6.2.2 System.Text.StringBuilder ================= */
+
+using System;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string txt = "Hello World";
+
+        StringBuilder sb = new StringBuilder();
+        sb.Append(txt);
+
+        for (int i = 0; i < 300000; i++)
+        {
+            sb.Append("1");
+        }
+
+        string newText = sb.ToString();
+    }
+}
+
+

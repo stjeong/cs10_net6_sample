@@ -1,0 +1,19 @@
+﻿
+/* ================= 8.4 컬렉션 초기화 ================= */
+
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<int> numbers = new List<int>();
+        numbers.Add(0);
+        numbers.Add(1);
+        numbers.Add(2);
+        numbers.Add(3);
+        numbers.Add(4);
+
+        List<int> numbers2 = new List<int> { 0, 1, 2, 3, 4 };
+    }
+}

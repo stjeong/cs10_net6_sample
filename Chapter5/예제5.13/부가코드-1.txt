@@ -1,0 +1,26 @@
+﻿
+/* ================= 5.3.2 예외 처리기 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int divisor = 0;
+
+        try
+        {
+            int quotient = 10 / divisor;
+            Console.WriteLine("예외가 발생하지 않으면 실행됨!");
+        }
+        catch
+        {
+            Console.WriteLine("예외가 발생하면 실행됨!");
+        }
+        finally
+        {
+            Console.WriteLine("언제나 실행됨!");
+        }
+    }
+}

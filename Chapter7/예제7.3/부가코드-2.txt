@@ -1,0 +1,29 @@
+﻿
+
+/* ================= 7.1.1 형식 매개변수에 대한 제약 조건 ================= */
+
+using System;
+
+public class BaseClass { }
+
+public class DerivedClass : BaseClass { }
+
+public class Utility
+{
+    public static T Allocate<T, V>() where V : T, new()
+    {
+        return new V();
+    }
+}
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            BaseClass dInst2 = Utility.Allocate<BaseClass, DerivedClass>();
+        }
+    }
+}
+

@@ -1,0 +1,21 @@
+﻿
+
+/* ================= 7.7 익명 메서드 ================= */
+
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Thread thread = new Thread(ThreadFunc);
+        thread.Start();
+        thread.Join();
+    }
+
+    private static void ThreadFunc(object obj)
+    {
+        Console.WriteLine("ThreadFunc called!");
+    }
+}

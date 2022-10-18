@@ -1,0 +1,24 @@
+﻿
+/* ================= 6.5.4 System.IO.Path ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string samplePath = @"c:\temp\bin\Debug\app.exe";
+
+        Console.WriteLine("ChangeExtension ==> " + Path.ChangeExtension(samplePath, ".dll"));
+        Console.WriteLine("GetDirectoryName ==> " + Path.GetDirectoryName(samplePath));
+
+        Console.WriteLine("GetFullPath ==> " + Path.GetFullPath(samplePath));
+        Console.WriteLine("GetFileName ==> " + Path.GetFileName(samplePath));
+
+        Console.WriteLine("GetFileNameWithoutExtension ==> " + Path.GetFileNameWithoutExtension(samplePath));
+
+        Console.WriteLine("GetExtension ==> " + Path.GetExtension(samplePath));
+        Console.WriteLine("GetPathRoot ==> " + Path.GetPathRoot(samplePath));
+    }
+}

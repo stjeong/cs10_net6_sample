@@ -1,0 +1,30 @@
+﻿
+/* ================= 6.7.5.1 UDP 소켓 ================= */
+
+using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+
+// 이 예제를 정상적으로 동작시키고 싶다면
+// "예제6.35" 프로젝트를 빌드한 exe 파일을 실행해 두어야 합니다.
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Socket clntSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+
+        byte[] buf = Encoding.UTF8.GetBytes(DateTime.Now.ToString());
+
+        EndPoint serverEP = new IPEndPoint(IPAddress.Loopback, 10200);
+
+        clntSocket.SendTo(buf, serverEP);
+
+        byte[] recvBytes = new byte[1024];
+        int nRecv = clntSocket.ReceiveFrom(recvBytes, ref serverEP);
+        string txt = Encoding.UTF8.GetString(recvBytes, 0, nRecv);
+
+        Console.WriteLine(txt);
+    }
+}

@@ -1,0 +1,35 @@
+﻿
+/* ================= 8.8.1.2 컬렉션과 람다 식 ================= */
+
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<int> list = new List<int> { 3, 1, 4, 5, 2 };
+
+        // 방법 1
+        {
+            int count = 0;
+
+            foreach (var item in list)
+            {
+                if (item > 3)
+                {
+                    count++;
+                }
+            }
+
+            Console.WriteLine("3보다 큰 수는 " + count + "개 있음.");
+        }
+
+        // 방법 2
+        {
+            int count = list.Count((elem) => elem > 3);
+            Console.WriteLine("3보다 큰 수는 " + count + "개 있음.");
+        }
+    }
+}

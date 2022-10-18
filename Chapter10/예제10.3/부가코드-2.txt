@@ -1,0 +1,25 @@
+﻿
+/* ================= 10.2.1 닷넷 4.5 BCL에 추가된 Async 메서드 ================= */
+
+using System;
+using System.Net;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            AwaitDownloadString();
+
+            Console.ReadLine();
+        }
+
+        private static async void AwaitDownloadString()
+        {
+            WebClient wc = new WebClient();
+            string text = await wc.DownloadStringTaskAsync("http://www.microsoft.com");
+            Console.WriteLine(text);
+        }
+    }
+}

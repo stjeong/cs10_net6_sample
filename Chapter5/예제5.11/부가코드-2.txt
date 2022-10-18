@@ -1,0 +1,15 @@
+﻿
+/* ================= 5.2.6.2 공개키 토큰과 어셈블리 서명 ================= */
+
+using System;
+using System.Reflection;
+
+[assembly: AssemblyVersion("1.0.0.0")]
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(typeof(Program).Assembly.FullName);
+    }
+}

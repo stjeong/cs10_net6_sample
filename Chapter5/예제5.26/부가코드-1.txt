@@ -1,0 +1,17 @@
+﻿
+
+/* ================= 6.1.1 System.DateTime ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        DateTime now = DateTime.Now;
+        Console.WriteLine(now);
+
+        DateTime dayForChildren = new DateTime(now.Year, 5, 5);
+        Console.WriteLine(dayForChildren);
+    }
+}

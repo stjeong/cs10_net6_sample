@@ -1,0 +1,47 @@
+﻿
+/* ================= 4.5.1.5 구조체 ================= */
+
+using System;
+
+namespace ConsoleApplication1
+{
+    struct Vector
+    {
+        public int X;
+        public int Y;
+
+        public Vector(int x, int y) // 매개변수를 가진 생성자 정의
+        {
+            this.X = x; // 구조체가 가진 모든 필드를 초기화
+            this.Y = y;
+        }
+
+        public override string ToString() // System.Object의 ToString을 재정의
+        {
+            return "X: " + X + ", Y = " + Y;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Vector v1 = new Vector();
+
+            Vector v2;
+            v2.X = 0;
+            v2.Y = 0;
+
+            Vector v3 = new Vector(0, 0);
+
+            // n1, n2, n3는 같은 표현
+            int n1 = new int();
+            int n2;
+            n2 = 0;
+            int n3 = 0;
+
+            int n; // n은 0의 값을 갖고 있지만 개발자가 할당한 것은 아니다.
+            // Console.WriteLine(n); // 컴파일 오류 발생!
+        }
+    }
+}

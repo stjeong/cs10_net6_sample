@@ -1,0 +1,22 @@
+﻿
+/* ================= 4.3.2.3 Equals ================= */
+
+using System;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 5;
+            Console.WriteLine(n.Equals(5)); // 출력 결과: True
+
+            int n1 = 5;
+            int n2 = 5;
+            Console.WriteLine(n1.Equals(n2)); // 출력 결과: True
+            n2 = 6;
+            Console.WriteLine(n1.Equals(n2)); // 출력 결과: False
+        }
+    }
+}

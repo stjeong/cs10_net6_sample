@@ -1,0 +1,32 @@
+﻿
+/* ================= 4.2.2 정보 은닉 ================= */
+
+using System;
+
+class Circle
+{
+    double pi = 3.14;
+    public void SetPi(double value)
+    {
+        if (value <= 3 || value >= 3.15)
+        {
+            Console.WriteLine("문제 발생");
+        }
+        pi = value;
+    }
+
+    // ……[생략]……
+}
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Circle o = new Circle();
+            o.SetPi(3.14159);
+            o.SetPi(3.5); // 출력: 문제 발생
+        }
+    }
+}

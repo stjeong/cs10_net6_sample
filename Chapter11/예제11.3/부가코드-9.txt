@@ -1,0 +1,19 @@
+﻿
+/* ================= 11.8 예외 필터 ================= */
+
+using System;
+using System.IO;
+class Program
+{
+    static void Main(string[] args)
+    {
+        try
+        {
+            throw new FileNotFoundException("test.txt");
+        }
+        catch (FileNotFoundException e) { }
+        // catch (FileNotFoundException e) { }
+        // 컴파일 오류: CS0160 이전의 catch 절에서 이 형식이나
+        // 상위 형식('FileNotFoundException')의 예외를 모두 catch합니다.
+    }
+}

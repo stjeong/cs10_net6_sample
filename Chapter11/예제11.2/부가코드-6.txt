@@ -1,0 +1,31 @@
+﻿
+/* ================= 11.4 null 조건 연산자 ================= */
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<int> list = GetList();
+        // int count = list?.Count; // 컴파일 에러
+                                    // list == null인 경우 null을 반환해야 하는데
+                                    // int 타입에는 null을 대입할 수 없다.
+
+        {
+            int? count = list?.Count;
+        }
+
+        {
+            int count = list?.Count ?? 0; // list?가 null을 반환하면 ?? 연산자로 인해 0을 반환
+        }
+
+        list?.Add(5);
+    }
+
+    private static List<int> GetList()
+    {
+        return null;
+    }
+}

@@ -1,0 +1,45 @@
+﻿
+
+/* ================= 11.4 null 조건 연산자 ================= */
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // null을 고려하지 않은 코드
+        {
+            List<int> list = GetList();
+            Console.Write(list.Count);
+        }
+
+        // null을 고려한 코드
+        {
+            List<int> list = GetList();
+            if (list != null)
+            {
+                Console.Write(list.Count);
+            }
+        }
+
+        // null 조건 연산자를 사용한 코드
+        {
+            List<int> list = GetList();
+            Console.Write(list?.Count); // list == null이면 null 반환,
+                                        // list != null이면 list.Count 멤버 변수의 값 반환
+        }
+
+        // null 조건 연산자가 C# 컴파일러에 의해 번역되는 코드
+        {
+            List<int> list = GetList();
+            Console.Write(list != null ? new int?(list.Count) : null);
+        }
+    }
+
+    private static List<int> GetList()
+    {
+        return null;
+    }
+}

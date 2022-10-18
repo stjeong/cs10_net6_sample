@@ -1,0 +1,24 @@
+﻿
+/* ================= 6.8.4 데이터베이스 트랜잭션 ================= */
+
+using System;
+using System.Configuration;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string connectionString = ConfigurationManager.ConnectionStrings["TestDB"].ConnectionString;
+
+        using (SqlConnection sqlCon = new SqlConnection(connectionString))
+        {
+            sqlCon.Open();
+            using (SqlTransaction transaction = sqlCon.BeginTransaction())
+            {
+                // SqlCommand를 이용해 쿼리 수행
+                transaction.Commit();
+            }
+        }
+    }
+}

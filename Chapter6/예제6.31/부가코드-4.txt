@@ -1,0 +1,17 @@
+﻿
+/* ================= 6.7.4 System.Net.Dns ================= */
+
+using System;
+using System.Net;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        IPHostEntry entry = Dns.GetHostEntry("www.microsoft.com");
+        foreach (IPAddress ipAddress in entry.AddressList)
+        {
+            Console.WriteLine(ipAddress);
+        }
+    }
+}

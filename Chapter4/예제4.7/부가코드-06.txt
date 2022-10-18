@@ -1,0 +1,35 @@
+﻿
+/* ================= 4.1.6 네임스페이스 ================= */
+
+using Communication;
+using Disk.FileSystem;
+
+namespace Communication
+{
+    class Http
+    {
+    }
+
+    class Ftp
+    {
+    }
+}
+
+namespace Disk.FileSystem
+{
+    class File
+    {
+    }
+}
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Http http = new Http();
+            File file = new File();
+        }
+    }
+}

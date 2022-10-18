@@ -1,0 +1,24 @@
+﻿
+/* ================= 6.7.5.1 UDP 소켓 ================= */
+
+using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Socket clntSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+
+        byte[] buf = Encoding.UTF8.GetBytes(DateTime.Now.ToString());
+
+        // IPAddress localAddress = IPAddress.Parse("127.0.0.1");
+        // EndPoint serverEP = new IPEndPoint(localAddress, 10200);
+
+        EndPoint serverEP = new IPEndPoint(IPAddress.Loopback, 10200);
+
+        clntSocket.SendTo(buf, serverEP);
+    }
+}

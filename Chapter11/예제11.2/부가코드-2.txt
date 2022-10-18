@@ -1,0 +1,31 @@
+﻿
+/* ================= 11.3 using static 구문을 이용한 타입명 생략 ================= */
+
+using System;
+using System.Net;
+using System.Text;
+using static UriExtension;
+
+static class UriExtension
+{
+    public static string TextFromUrl(this Uri uri)
+    {
+        return "UriExtension: " + uri.ToString();
+    }
+}
+
+class Program
+{
+    public static string TextFromUrl(Uri uri)
+    {
+        return "Program: " + uri.ToString();
+    }
+
+    static void Main(string[] args)
+    {
+        Uri uri = new Uri("http://www.naver.com");
+        string txt = TextFromUrl(uri); // 모호함 발생!
+                                       // 이 호출은 UriExtension의 정적 메서드 호출인가?
+                                       // 아니면 Program 타입에 정의된 메서드 호출인가?
+    }
+}

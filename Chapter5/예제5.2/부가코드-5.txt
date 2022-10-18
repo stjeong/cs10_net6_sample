@@ -1,0 +1,28 @@
+﻿
+/* ================= 5.1.3.4 안전하지 않은 컨텍스트: unsafe ================= */
+
+using System;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        unsafe static void GetAddResult(int* p, int a, int b)
+        {
+            *p = a + b;
+        }
+
+        static void Main(string[] args)
+        {
+            int i;
+
+            unsafe
+            {
+                GetAddResult(&i, 5, 10);
+            }
+
+            Console.WriteLine(i);
+        }
+    }
+}
+

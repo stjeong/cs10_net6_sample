@@ -1,0 +1,45 @@
+﻿using System;
+
+namespace ConsoleApplication1
+{
+    /* ================= 3.5.2.1 증감 연산자, 복합 대입 연산자 ================= */
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 50;
+            n++; // 증가 연산자 후위 표기법
+            n--; // 감소 연산자 후위 표기법
+            ++n; // 증가 연산자 전위 표기법
+            --n; // 감소 연산자 전위 표기법
+
+            n = 50;
+            Console.WriteLine(n++); // n을 평가하고 난 다음 1만큼 증가
+
+            n = 50;
+            Console.WriteLine(++n); // n의 값을 1만큼 증가시키고 식을 평가
+
+
+            n = 50;
+            int result;
+            result = n++; // result에 50을 대입한 후 값을 51로 증가, result의 값은 50
+
+            n = 50;
+            result = ++n; // n의 값을 51로 증가시킨 후에 result에 값을 대입, result의 값은 51
+
+            n = 50;
+            result = n--; // result에 50을 대입한 후에 값을 49로 감소, result의 값은 50
+
+            n = 50;
+            result = --n; // n의 값을 49로 감소한 후에 result에 값을 대입, result의 값은 49
+
+
+            n += 5; n = n + 5;
+            n -= 5; n = n - 5;
+            n *= 5; n = n * 5;
+            n /= 5; n = n / 5;
+            n %= 5; n = n % 5;
+        }
+    }
+}

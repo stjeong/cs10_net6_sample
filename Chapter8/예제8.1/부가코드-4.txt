@@ -1,0 +1,28 @@
+﻿
+/* ================= 8.4 컬렉션 초기화 ================= */
+
+using System;
+using System.Collections.Generic;
+
+class Person
+{
+    public int Age { get; set; }
+    public string Name { get; set; }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<Person> list = new List<Person>
+        {
+            new Person { Name = "Ally", Age = 35 },
+            new Person { Name = "Luis", Age = 40 },
+        };
+
+        foreach (var item in list)
+        {
+            Console.WriteLine(item.Name + ": " + item.Age);
+        }
+    }
+}

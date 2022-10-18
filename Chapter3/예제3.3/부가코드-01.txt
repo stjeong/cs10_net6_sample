@@ -1,0 +1,26 @@
+﻿
+using System;
+
+/* ================= 3.5.2.5 while 문 ================= */
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /* for 문을 이용한 경우 */
+            int sum = 0;
+
+            for (int n = 1; n <= 1000; n++)
+            {
+                if (n % 2 == 0)
+                {
+                    sum += n;
+                }
+            }
+
+            Console.WriteLine(sum);
+        }
+    }
+}

@@ -1,0 +1,37 @@
+﻿
+/* ================= 11.5 문자열 내에 식을 포함 ================= */
+
+using System;
+class Person
+{
+    public string Name { get; set; }
+
+    public int Age { get; set; }
+
+    public override string ToString()
+    {
+        return $"이름: {Name}, 나이: {Age}";
+
+        // 컴파일 후 아래의 코드로 변경됨
+        // return string.Format("이름: {0}, 나이: {1}", Name, Age);
+
+        // 중괄호 자체를 출력에 포함하고 싶은 경우
+        // return $"{{이름: {Name}, 나이: {Age}}}"; // {이름 = Anders, 나이 = 49}
+
+        // 3항 연산자를 사용하는 것도 가능하고,
+        // return $"이름: {Name.ToUpper()}, 나이: {(Age > 19 ? "성년" : "미성년")}";
+
+        // 표 6.3의 형식 문자열을 동일하게 지원
+        // return $"이름: {Name,-10}, 나이: {Age,5:X}";
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person person = new Person { Name = "Anders", Age = 49 };
+        Console.WriteLine(person); // 출력결과: 이름 = Anders, 나이 = 49
+    }
+}
+

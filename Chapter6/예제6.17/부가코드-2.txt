@@ -1,0 +1,31 @@
+﻿
+/* ================= 6.5.1 System.IO.FileStream ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 로깅 목적의 파일 열기
+        using (FileStream fs = new FileStream("test1.log", FileMode.Append))
+        {
+            // 쓰기 작업
+        }
+
+        // 전용 데이터 입출력
+        using (FileStream fs = new FileStream("test2.log", FileMode.OpenOrCreate,
+        FileAccess.ReadWrite, FileShare.None))
+        {
+            // 읽기/쓰기 작업
+        }
+
+        // 임시 데이터 입출력
+        using (FileStream fs = new FileStream("test3.log", FileMode.Create,
+        FileAccess.ReadWrite, FileShare.None))
+        {
+            // 읽기 쓰기 작업
+        }
+    }
+}

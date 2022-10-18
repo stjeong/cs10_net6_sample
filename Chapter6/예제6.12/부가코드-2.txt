@@ -1,0 +1,48 @@
+﻿
+/* ================= 6.3.6 System.Xml.Serialization.XmlSerializer ================= */
+
+using System;
+using System.IO;
+using System.Text;
+using System.Xml.Serialization;
+
+public class Person
+{
+    public int Age;
+    public string Name;
+
+    public Person()
+    {
+    }
+
+    public Person(int age, string name)
+    {
+        this.Age = age;
+        this.Name = name;
+    }
+
+    public override string ToString()
+    {
+        return string.Format("{0} {1}", this.Age, this.Name);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string text = @"<?xml version='1.0'?>
+<Person xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/
+XMLSchema'>
+<Age>27</Age>
+<Name>Ted</Name>
+</Person>
+";
+        byte[] buf = Encoding.UTF8.GetBytes(text);
+        MemoryStream ms = new MemoryStream(buf);
+        XmlSerializer xs = new XmlSerializer(typeof(Person));
+        Person clone = xs.Deserialize(ms) as Person;
+        Console.WriteLine(clone); // 출력 결과: 27 Ted
+    }
+}
+

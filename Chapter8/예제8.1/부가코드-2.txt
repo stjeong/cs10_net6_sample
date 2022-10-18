@@ -1,0 +1,28 @@
+﻿
+/* ================= 8.3 객체 초기화 ================= */
+
+using System;
+
+class Person
+{
+    public string _name;
+    int _age;
+
+    public Person()
+    {
+    }
+
+    public Person(int age)
+    {
+        _age = age;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person p1 = new Person();
+        Person p2 = new Person(10) { _name = "Anders" }; // 생성자 + 객체 초기화
+    }
+}

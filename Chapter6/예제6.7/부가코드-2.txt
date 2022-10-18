@@ -1,0 +1,14 @@
+﻿
+/* ================= 6.3.1 System.BitConverter ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int n = 1652300;
+        string text = n.ToString(); // 숫자 1652300을 문자열로 직렬화
+        int result = int.Parse(text); // 문자열로부터 숫자를 역직렬화해서 복원
+    }
+}

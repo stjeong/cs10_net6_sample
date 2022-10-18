@@ -1,0 +1,65 @@
+﻿
+/* ================= 7.1 제네릭 ================= */
+
+using System;
+
+/*
+public class Utility
+{
+    public static void WriteLog(object item)
+    {
+        string output = string.Format("{0}: {1}", DateTime.Now, item);
+        Console.WriteLine(output);
+    }
+
+    public static void WriteLog(bool item) 
+    { 
+        // ...[생략]...
+    }
+
+    public static void WriteLog(byte item) 
+    { 
+        // ...[생략]...
+    }
+    
+    public static void WriteLog(short item) 
+    { 
+        // ...[생략]...
+    }
+    
+    public static void WriteLog(ushort item) 
+    { 
+        // ...[생략]...
+    }
+    
+    // …… [생략] ……
+}
+*/
+
+public class Utility
+{
+    public static void WriteLog<T>(T item)
+    {
+        string output = string.Format("{0}: {1}", DateTime.Now, item);
+        Console.WriteLine(output);
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 사용 예
+        Utility.WriteLog<bool>(true);
+        Utility.WriteLog<int>(0x05);
+        Utility.WriteLog<float>(3.14159f);
+        Utility.WriteLog<string>("test");
+
+        // 사용 예
+        Utility.WriteLog(true);
+        Utility.WriteLog(0x05);
+        Utility.WriteLog(3.14159f);
+        Utility.WriteLog("test");
+    }
+}

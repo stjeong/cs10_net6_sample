@@ -1,0 +1,34 @@
+﻿
+/* ================= 6.7.5.2 TCP 소켓 ================= */
+
+using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Socket srvSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+        IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 11200);
+
+        srvSocket.Bind(endPoint);
+
+        srvSocket.Listen(10);
+
+        Socket clntSocket = srvSocket.Accept();
+
+        byte[] recvBytes = new byte[1024];
+        int nRecv = clntSocket.Receive(recvBytes);
+
+        string txt = Encoding.UTF8.GetString(recvBytes, 0, nRecv);
+
+        byte[] sendBytes = Encoding.UTF8.GetBytes("Hello: " + txt);
+        clntSocket.Send(sendBytes);
+
+        clntSocket.Close(); // 클라이언트 대응 소켓을 종료하고,
+        srvSocket.Close(); // 서버용 소켓을 종료한다.
+    }
+}
+

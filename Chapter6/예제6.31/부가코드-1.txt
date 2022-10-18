@@ -1,0 +1,17 @@
+﻿
+/* ================= 6.7.1 System.Net.IPAddress ================= */
+
+using System;
+using System.Net;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        IPAddress ipAddr = IPAddress.Parse("202.131.30.11");
+        Console.WriteLine(ipAddr); // 출력 결과: 202.131.30.11
+
+        IPAddress ipAddr2 = new IPAddress(new byte[] { 202, 131, 30, 11 });
+        Console.WriteLine(ipAddr2); // 출력 결과: 202.131.30.11
+    }
+}

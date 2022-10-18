@@ -1,0 +1,21 @@
+﻿
+/* ================= 6.8.1.2 SQL 쿼리 ================= */
+
+/*
+
+INSERT INTO MemberInfo(Name, Birth, Email, Family) VALUES ('Anderson', '1950-05-20', 'anderson@gmail.com', 2)
+INSERT INTO MemberInfo(Name, Birth, Email, Family) VALUES ('Jason', '1967-12-03', 'jason@gmail.com', 0)
+INSERT INTO MemberInfo(Name, Birth, Email, Family) VALUES ('Mark', '1998-03-02', 'mark@naver.com', 1)
+INSERT INTO Blog(Email, Text, Created) VALUES ('jason@gmail.com', '안녕하세요.', '2013-04-07 21:30:00')
+
+SELECT * FROM MemberInfo
+SELECT Name FROM MemberInfo
+SELECT Name, Birth, Email, Family FROM MemberInfo WHERE Family >= 1
+
+UPDATE MemberInfo SET Birth='1950-06-20' WHERE Email = 'anderson@gmail.com'
+
+DELETE FROM MemberInfo
+
+DELETE FROM MemberInfo WHERE Family >= 2
+
+*/

@@ -1,0 +1,33 @@
+﻿
+/* ================= 5.3.2 예외 처리기 ================= */
+
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        FileStream file = null;
+        try
+        {
+            file = new FileStream("test.txt", FileMode.OpenOrCreate);
+            // …… 열린 파일로 작업, 이 과정에서 예외가 발생할 수 있음.
+            file.Close();
+        }
+        catch
+        {
+            file.Close();
+        }
+
+        FileStream file2 = null;
+        try
+        {
+            file2 = new FileStream("test.txt", FileMode.OpenOrCreate);
+            // …… 열린 파일로 작업, 이 과정에서 예외가 발생할 수 있음.
+        }
+        finally
+        {
+            file2.Close();
+        }
+    }
+}

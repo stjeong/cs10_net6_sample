@@ -1,0 +1,48 @@
+﻿
+
+/* ================= 7.6 nullable 형식 ================= */
+
+using System;
+
+/*
+public class SiteMember
+{
+    bool _getMarried;
+    public bool GetMarried
+    {
+        get { return _getMarried; }
+        set { _getMarried = value; }
+    }
+}
+*/
+
+public class SiteMember
+{
+    /*
+    Nullable<bool> _getMarried;
+
+    public Nullable<bool> GetMarried
+    {
+        get { return _getMarried; }
+        set { _getMarried = value; }
+    }
+    */
+
+    bool? _getMarried;
+    public bool? GetMarried
+    {
+        get { return _getMarried; }
+        set { _getMarried = value; }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        SiteMember member = new SiteMember();
+        member.GetMarried = true;
+
+        Console.WriteLine(member.GetMarried);
+    }
+}

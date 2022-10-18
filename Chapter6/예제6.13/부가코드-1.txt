@@ -1,0 +1,24 @@
+﻿
+/* ================= 6.4.1 System.Collections.ArrayList ================= */
+
+using System;
+using System.Collections;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        ArrayList ar = new ArrayList();
+
+        ar.Add("Hello");
+        ar.Add("World");
+        ar.Add("My");
+        ar.Add("Sample");
+        ar.Sort();
+
+        foreach (string txt in ar)
+        {
+            Console.WriteLine(txt);
+        }
+    }
+}

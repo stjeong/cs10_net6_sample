@@ -1,0 +1,32 @@
+﻿
+/* ================= 6.2.1 System.String ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        {
+            string txt = "Hello World";
+
+            Console.WriteLine(txt + " EndsWith(\"WORLD\"): " + txt.EndsWith("WORLD", StringComparison.OrdinalIgnoreCase));
+            Console.WriteLine();
+
+            Console.WriteLine(txt + " IndexOf(\"WORLD\"): " + txt.IndexOf("WORLD", StringComparison.OrdinalIgnoreCase));
+            Console.WriteLine();
+
+            Console.WriteLine(txt + " StartsWith(\"HELLO\"): " + txt.StartsWith("HELLO", StringComparison.OrdinalIgnoreCase));
+
+            Console.WriteLine();
+        }
+
+        {
+            string txt = "Hello";
+            Console.WriteLine(txt + " == HELLO: " + (txt == "HELLO")); // 출력 결과: False
+            Console.WriteLine(txt + " == HELLO: " + txt.Equals("HELLO",
+            StringComparison.OrdinalIgnoreCase)); // 출력 결과: True
+            Console.WriteLine();
+        }
+    }
+}

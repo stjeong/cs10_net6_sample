@@ -1,0 +1,23 @@
+﻿
+/* ================= 6.2.4 System.Text.RegularExpressions.Regex ================= */
+
+using System;
+using System.Text.RegularExpressions;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string txt = "Hello, World! Welcome to my world!";
+        Regex regex = new Regex("world", RegexOptions.IgnoreCase);
+
+        string result = regex.Replace(txt, funcMatch);
+
+        Console.WriteLine(result); // 출력 결과: Hello, Universe! Welcome to my Universe!
+    }
+
+    static string funcMatch(Match match)
+    {
+        return "Universe";
+    }
+}

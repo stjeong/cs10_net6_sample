@@ -1,0 +1,54 @@
+﻿
+/* ================= 4.5.1.4 인터페이스 ================= */
+
+abstract class DrawingObject
+{
+    public abstract void Draw();
+    public abstract void Move(int offset);
+}
+
+interface IDrawingObject
+{
+    void Draw();
+    void Move(int offset);
+}
+
+class Computer
+{
+}
+
+interface IMonitor // 메서드 시그니처만 포함하고 있는 인터페이스
+{
+    void TurnOn();
+}
+
+interface IKeyboard { } // 비어 있는 인터페이스 정의 가능
+
+// 클래스 상속과 함께 인터페이스로부터 다중 상속 가능
+class Notebook : Computer, IMonitor, IKeyboard
+{
+    public void TurnOn() { } // 추상 메서드와는 달리 override 예약어가 필요 없음.
+}
+
+class Notebook2 : Computer, IMonitor, IKeyboard
+{
+    void IMonitor.TurnOn() { }
+}
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Notebook notebook = new Notebook();
+            notebook.TurnOn();
+
+            Notebook2 notebook2 = new Notebook2();
+            // notebook2.TurnOn(); // IMonitor.TurnOn 메서드는 Notebook 인스턴스로 호출 불가능
+                               // 따라서 이 코드는 컴파일 오류가 발생한다.
+            IMonitor mon = notebook2 as IMonitor;
+            mon.TurnOn(); // 반드시 IMonitor 인터페이스로 형변환해서 호출
+        }
+    }
+}

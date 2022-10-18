@@ -1,0 +1,42 @@
+﻿
+/* ================= 4.5.1.5 구조체 - out 예약어 ================= */
+
+using System;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n;
+            if (int.TryParse("1234567", out n) == true) // System.Int32의 TryParse를 호출
+            {
+                Console.WriteLine(n); // 출력 결과: 1234567
+            }
+
+            double d;
+            if (double.TryParse("12E3", out d) == true) // double은 지수 표기법의 문자열도 지원
+            {
+                Console.WriteLine(d); // 출력 결과: 12000
+            }
+
+            bool b;
+            if (bool.TryParse("true", out b) == true) // bool 타입도 관련된 문자열 해석
+            {
+                Console.WriteLine(b); // 출력 결과: True
+            }
+
+            short s;
+            if (short.TryParse("123456789", out s) == true) // short의 범위를 초과: false를 반환
+            {
+                Console.WriteLine(s); // false가 반환됐으므로 실행되지 않음
+            }
+
+            if (short.TryParse("Not_a_number", out s) == true) // 숫자가 아니므로 false를 반환
+            {
+                Console.WriteLine(s); // false가 반환됐으므로 실행되지 않음
+            }
+        }
+    }
+}

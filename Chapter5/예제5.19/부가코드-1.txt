@@ -1,0 +1,18 @@
+﻿
+/* ================= 5.4.1.2 재귀 호출 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(factorial(5)); // 출력 결과: 120 (계승: 5 * 4 * 3 * 2 * 1 == 120)
+    }
+
+    private static long factorial(long n)
+    {
+        if (n == 0) return 1;
+        return n * factorial(n - 1);
+    }
+}

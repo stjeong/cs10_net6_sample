@@ -1,0 +1,20 @@
+﻿
+/* ================= 8.7 확장 메서드 ================= */
+
+using System;
+using System.Collections.Generic;
+using System.Linq; // IEnumerable의 확장 메서드를 호출하기 위해 네임스페이스 추가
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> list = new List<int>() { 5, 4, 3, 2, 1 };
+
+            // IEnumerable의 Min 확장 메서드 호출
+            Console.WriteLine(list.Min()); // 출력 결과: 1
+        }
+    }
+}

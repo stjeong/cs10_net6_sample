@@ -1,0 +1,27 @@
+﻿
+/* ================= 5.3.6 올바른 예외 처리 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        for (int i = 0; i < 100000; i++)
+        {
+            try
+            {
+                int j = int.Parse("53");
+            }
+            catch (System.FormatException)
+            {
+            }
+        }
+
+        for (int i = 0; i < 100000; i++)
+        {
+            int j;
+            bool success = int.TryParse("5T", out j);
+        }
+    }
+}

@@ -1,0 +1,31 @@
+﻿
+/* ================= 5.1.1.4 특성 - AssemblyInfo.cs ================= */
+
+using System.Reflection;
+using System.Runtime.InteropServices;
+
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+[assembly: ComVisible(false)]
+[assembly: Guid("50927964-3cea-422d-931b-8895877da021")]
+[assembly: AssemblyVersion("1.0.0.0")]
+
+[assembly: AssemblyTitle("ConsoleApplication1 - Test")]
+[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyProduct("Test Product")]
+[assembly: AssemblyInformationalVersion("1.0.0.1")]
+[assembly: AssemblyCopyright("Copyright © 2013")]
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}

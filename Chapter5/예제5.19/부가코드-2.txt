@@ -1,0 +1,21 @@
+﻿
+/* ================= 5.4.1.2 재귀 호출 ================= */
+
+using System;
+
+class Program
+{
+    // 반드시 Debug 빌드로 테스트한다.
+    static void Main(string[] args)
+    {
+        RecursiveCall(1);
+    }
+
+    private static void RecursiveCall(long n)
+    {
+        // int i = 5, j = 6, k = 7; // 지역 변수로 인해 12바이트 스택 소비
+
+        Console.WriteLine(n);
+        RecursiveCall(n + 1);
+    }
+}

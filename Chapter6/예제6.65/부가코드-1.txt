@@ -1,0 +1,22 @@
+﻿
+
+/* ================= 6.10.3 IntPtr ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(IntPtr.Size);
+        // 출력결과
+        // 32비트 프로그램인 경우: 4
+        // 64비트 프로그램인 경우: 8
+
+        using (FileStream fs = new FileStream("test.dat", FileMode.Create))
+        {
+            Console.WriteLine(fs.Handle);
+        }
+    }
+}

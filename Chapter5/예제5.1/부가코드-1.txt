@@ -1,0 +1,25 @@
+﻿
+/* ================= 5.1.1.4 특성 - 사용자 정의 특성 ================= */
+class AuthorAttribute : System.Attribute
+{
+    string name;
+    public AuthorAttribute(string name)
+    {
+        this.name = name;
+    }
+
+    int _version;
+    public int Version
+    {
+        get { return _version; }
+        set { _version = value; }
+    }
+}
+
+[Author("Anders", Version = 1)]
+class Program
+{
+    static void Main(string[] args)
+    {
+    }
+}

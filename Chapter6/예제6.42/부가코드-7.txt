@@ -1,0 +1,30 @@
+﻿
+/* ================= 6.8.2.2 System.Data.SqlClient.SqlCommand ================= */
+
+using System;
+using System.Configuration;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string connectionString = ConfigurationManager.ConnectionStrings["TestDB"].ConnectionString;
+
+        using (SqlConnection sqlCon = new SqlConnection())
+        {
+            sqlCon.ConnectionString = connectionString;
+
+            // DB에 연결하고,
+            sqlCon.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandText = "SELECT COUNT(*) FROM MemberInfo WHERE Family >= 2";
+            object objValue = cmd.ExecuteScalar();
+            int countOfMember = (int)objValue;
+
+            Console.WriteLine(countOfMember);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+﻿
+
+/* ================= 7.1 제네릭 ================= */
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 제네릭이 없던 시절
+        {
+            int n = 5;
+            ArrayList ar = new ArrayList();
+            ar.Add(n);
+        }
+
+        // 제네릭이 구현된 C# 2.0 이후
+        {
+            int n = 5;
+            List<int> list = new List<int>();
+            list.Add(n);
+        }
+    }
+}

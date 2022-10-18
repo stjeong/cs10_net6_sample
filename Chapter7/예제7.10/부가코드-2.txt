@@ -1,0 +1,41 @@
+﻿
+/* ================= 8.1 var 예약어 ================= */
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<int> numbers1 = new List<int>(new int[] { 1, 2, 3, 4, 5 });
+        List<int> numbers2 = new List<int>(new int[] { 6, 7, 8, 9, 10 });
+
+        Dictionary<string, List<int>> dict = new Dictionary<string, List<int>>();
+        dict["first"] = numbers1;
+        dict["second"] = numbers2;
+
+        foreach (KeyValuePair<string, List<int>> elem in dict)
+        {
+            Console.WriteLine(elem.Key + ": " + Output(elem.Value));
+        }
+
+        foreach (var elem in dict) // C# 컴파일러는 var를 KeyValuePair<string, List<int>>로 대체
+        {
+            Console.WriteLine(elem.Key + ": " + Output(elem.Value));
+        }
+    }
+
+    private static string Output(List<int> list)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        foreach (int elem in list)
+        {
+            sb.AppendFormat("{0},", elem);
+        }
+
+        return sb.ToString().TrimEnd(',');
+    }
+}

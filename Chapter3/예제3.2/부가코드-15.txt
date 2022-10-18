@@ -1,0 +1,26 @@
+﻿using System;
+
+namespace ConsoleApplication1
+{
+    /* ================= 3.5.2.3 중첩 루프 ================= */
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int x = 2; x < 10; x++)
+                for (int y = 1; y < 10; y++)
+                    Console.WriteLine(x + " * " + y + " = " + (x * y));
+
+            // [또는, 가독성을 높이기 위해 하나의 구문이지만 블록을 일부러 사용하기도 한다.]
+
+            for (int x = 2; x < 10; x++)
+            {
+                for (int y = 1; y < 10; y++)
+                {
+                    Console.WriteLine(x + " * " + y + " = " + (x * y));
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+﻿
+/* ================= 8.1 var 예약어 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int i = 5;
+        var j = 6;
+        Console.WriteLine(i.GetType().FullName); // 출력 결과: System.Int32
+        Console.WriteLine(j.GetType().FullName); // 출력 결과: System.Int32
+    }
+}

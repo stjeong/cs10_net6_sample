@@ -1,0 +1,53 @@
+﻿
+/* ================= 4.5.1.5 구조체 - out 예약어 ================= */
+
+using System;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        /*
+        int Divide(int n1, int n2)
+        {
+            if (n2 == 0) // 분모가 0이면 나눗셈 결과로 0을 반환
+            {
+                return 0;
+            }
+
+            return n1 / n2;
+        }
+        */
+
+        struct DivideResult
+        {
+            public bool Success;
+            public int Result;
+        }
+
+        DivideResult Divide(int n1, int n2)
+        {
+            DivideResult ret = new DivideResult();
+            if (n2 == 0) // 분모가 0이면 Success 필드를 false로 설정
+            {
+                ret.Success = false;
+                return ret;
+            }
+
+            ret.Success = true;
+            ret.Result = n1 / n2;
+            return ret;
+        }
+
+        static void Main(string[] args)
+        {
+            Program pg = new Program();
+
+            DivideResult result = pg.Divide(50, 0);
+            Console.WriteLine(result.Success + ": " + result.Result);
+
+            result = pg.Divide(50, 10);
+            Console.WriteLine(result.Success + ": " + result.Result);
+        }
+    }
+}

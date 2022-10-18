@@ -1,0 +1,26 @@
+﻿
+/* ================= 11.5 문자열 내에 식을 포함 ================= */
+
+using System;
+class Person
+{
+    public string Name { get; set; }
+
+    public int Age { get; set; }
+
+    public override string ToString()
+    {
+        // return "이름: " + Name + ", 나이: " + Age;
+
+        return string.Format("이름: {0}, 나이: {1}", Name, Age);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person person = new Person { Name = "Anders", Age = 49 };
+        Console.WriteLine(person); // 출력결과: 이름 = Anders, 나이 = 49
+    }
+}

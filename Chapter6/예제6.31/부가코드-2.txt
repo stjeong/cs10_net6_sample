@@ -1,0 +1,17 @@
+﻿
+/* ================= 6.7.1 System.Net.IPAddress ================= */
+
+using System;
+using System.Net;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        IPAddress ipAddr = IPAddress.Parse("2001:0000:85a3:0042:1000:8a2e:0370:7334");
+        Console.WriteLine(ipAddr); // 출력 결과: 2001:0:85a3:42:1000:8a2e:370:7334
+
+        IPAddress ipAddr2 = IPAddress.Parse("2001::7334");
+        Console.WriteLine(ipAddr2); // 출력 결과: 2001::7334
+    }
+}

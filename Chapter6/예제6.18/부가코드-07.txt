@@ -1,0 +1,22 @@
+﻿
+
+/* ================= 6.5.4 System.IO.Path ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string filePath = Path.Combine(@"C:\temp", "test", "myfile.dat");
+        Console.WriteLine(filePath); // 출력 결과: C:\temp\test\myfile.dat
+
+        string newDirName = "my<new"; // 폴더명에 '<' 문자는 허용되지 않는다.
+        int include = newDirName.IndexOfAny(Path.GetInvalidPathChars());
+        if (include != -1)
+        {
+            Console.WriteLine("폴더명에 적절하지 않은 문자가 있음.");
+        }
+    }
+}

@@ -1,0 +1,39 @@
+﻿
+/* ================= 11.4 null 조건 연산자 ================= */
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<int> list = null;
+
+        //for (int i = 0; i < list.Count; i++) // null 예외 발생
+        //{
+        //    // 목록 요소 처리
+        //}
+
+        // 방법 1: 사용하기 전 null 확인
+        if (list != null)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                // 목록 요소 처리
+            }
+        }
+
+        // 방법 2: for 문의 탈출 조건절에 null 확인 추가
+        for (int i = 0; list != null && i < list.Count; i++)
+        {
+            // 목록 요소 처리
+        }
+
+        // 방법 3: null 조건 연산자를 사용해 처리
+        for (int? i = 0; i < list?.Count; i++)
+        {
+            // 목록 요소 처리
+        }
+    }
+}

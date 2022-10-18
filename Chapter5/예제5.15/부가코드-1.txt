@@ -1,0 +1,21 @@
+﻿
+/* ================= 5.3.4 예외 발생 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        try
+        {
+            string txt = null;
+            Console.WriteLine(txt.ToUpper());
+        }
+        catch (System.Exception ex)
+        {
+            // throw ex;
+            throw ex;
+        }
+    }
+}

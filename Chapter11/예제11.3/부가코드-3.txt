@@ -1,0 +1,37 @@
+﻿
+/* ================= 11.7 Dictionary 타입의 인덱스 초기화 ================= */
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 컬렉션 초기화 구문에서의 중복 키 값 항목 추가
+        {
+            var weekends = new Dictionary<int, string>
+                {
+                    { 0, "Sunday" },
+                    { 6, "Saturday" },
+                    { 6, "Saturday2" }, // 실행 시 예외 발생
+                };
+        }
+
+        // 인덱스 초기화 구문에서의 중복 키 값 항목 추가
+        {
+            var weekends = new Dictionary<int, string>
+            {
+                [0] = "Sunday",
+                [6] = "Saturday",
+                [6] = "Saturday2", // 정상적으로 실행된다.
+            };
+        }
+
+        var people = new Dictionary<string, int>
+        {
+            ["Anders"] = 7, // TKey 타입이 string이므로 인덱서 초기화도 string 타입
+            ["Sam"] = 10,
+        };
+    }
+}

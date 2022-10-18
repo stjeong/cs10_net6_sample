@@ -1,0 +1,10 @@
+﻿
+/* ================= 5.1.3.7 스택을 이용한 값 형식 배열: stackalloc ================= */
+
+class Program
+{
+    unsafe static void Main(string[] args)
+    {
+        int* pArray = stackalloc int[1024]; // int 4byte * 1024 == 4KB 용량을 스택에 할당
+    }
+}

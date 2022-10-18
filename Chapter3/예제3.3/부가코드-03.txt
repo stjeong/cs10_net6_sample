@@ -1,0 +1,35 @@
+﻿
+using System;
+
+/* ================= 3.5.3.1 break 문 ================= */
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i = 2;
+
+            while (true)
+            {
+                int j = 1;
+
+                while (true)
+                {
+                    Console.WriteLine(i + " * " + j + " = " + (i * j));
+
+                    if (++j > 9)
+                    {
+                        break;
+                    }
+                }
+
+                if (++i > 9)
+                {
+                    break;
+                }
+            }
+        }
+    }
+}

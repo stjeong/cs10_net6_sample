@@ -1,0 +1,27 @@
+﻿
+/* ================= 11.1 C# 3.0에 소개된 자동 구현 속성의 초기화 구문 추가 ================= */
+
+using System;
+
+namespace ConsoleApplication1
+{
+    class Person
+    {
+        public string Name { get; set; } = "Jane";
+        public string Name2 { get; } = "Jane";
+
+        public Person()
+        {
+            Name2 = "John"; // set은 없지만 readonly 필드의 특성에 따라 생성자에서만 가능
+        }
+    }
+    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(new Person().Name);
+            Console.WriteLine(new Person().Name2);
+        }
+    }
+}

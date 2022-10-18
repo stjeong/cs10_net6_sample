@@ -1,0 +1,29 @@
+﻿
+
+/* ================= 4.1.5.2 정적 메서드 - Main 메서드 ================= */
+
+/*
+class Program
+{
+    static int Main(string[] args)
+    {
+        return 0;
+    }
+}
+*/
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        if (args.Length < 2)
+        {
+            return;
+        }
+
+        Console.WriteLine(args[0]);
+        Console.WriteLine(args[1]);
+    }
+}

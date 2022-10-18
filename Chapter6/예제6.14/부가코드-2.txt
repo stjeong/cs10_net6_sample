@@ -1,0 +1,23 @@
+﻿
+/* ================= 6.4.3 System.Collections.SortedList ================= */
+
+using System;
+using System.Collections;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        SortedList sl = new SortedList();
+
+        sl.Add(32, "Cooper");
+        sl.Add(56, "Anderson");
+        sl.Add(17, "Sammy");
+        sl.Add(27, "Paul");
+
+        foreach (int key in sl.GetKeyList())
+        {
+            Console.WriteLine(string.Format("{0} {1}", key, sl[key]));
+        }
+    }
+}

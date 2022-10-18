@@ -1,0 +1,27 @@
+﻿
+using System;
+
+/* ================= 3장 정리 - 프로젝트 오일러 1번 문제 ================= */
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = 1, sum = 0;
+
+            while (n < 1000)
+            {
+                if (n % 3 == 0 || n % 5 == 0)
+                {
+                    sum += n;
+                }
+
+                n++;
+            }
+
+            Console.WriteLine(sum);
+        }
+    }
+}

@@ -1,0 +1,34 @@
+﻿
+/* ================= 7.1 제네릭 ================= */
+
+using System;
+
+
+public class GenericSample<Type> // 형식 매개변수의 이름은 임의로 줄 수 있다.
+{
+    Type _item;
+
+    public GenericSample(Type value)
+    {
+        _item = value;
+    }
+}
+
+public class TwoGeneric<K, V> // 2개 이상 지정하는 것도 가능하다.
+{
+    K _key;
+    V _value;
+
+    public void Set(K key, V value)
+    {
+        _key = key;
+        _value = value;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+    }
+}

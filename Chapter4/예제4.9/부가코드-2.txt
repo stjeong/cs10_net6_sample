@@ -1,0 +1,54 @@
+﻿/* ================= 4.3 상속 ================= */
+
+public class Computer
+{
+    protected bool powerOn;
+    public void Boot() { }
+    public void Shutdown() { }
+    public void Reset() { }
+}
+
+public class Notebook : Computer
+{
+    bool fingerScan;
+
+    public bool HasFingerScanDevice() { return fingerScan; }
+
+    public void CloseLid()
+    {
+        if (powerOn == true) // 컴파일 가능
+        {
+            Shutdown(); // Notebook에서 추가된 메서드 내에서 부모의 메서드 호출
+        }
+    }
+}
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Notebook noteBook = new Notebook();
+            noteBook.Boot(); // Notebook 인스턴스에 대해 부모의 메서드 호출
+        }
+    }
+}
+
+sealed class Pen
+{
+}
+
+/*
+public class ElectricPen : Pen // 컴파일 오류 발생
+{
+}
+*/
+
+class Monitor { }
+
+/*
+class Notebook2 : Computer, Monitor // 컴파일 오류 발생
+{
+}
+*/

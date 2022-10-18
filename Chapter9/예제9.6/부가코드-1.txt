@@ -1,0 +1,35 @@
+﻿
+/* ================= 9.2.3 동적 언어와의 타입 연동 ================= */
+
+using System;
+using IronPython.Hosting;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var scriptEngine = Python.CreateEngine();
+            var scriptScope = scriptEngine.CreateScope();
+
+            // 파이썬에서 AddFunc 함수를 정의
+            string code = @"
+def AddFunc(a, b):
+    print 'AddFunc called'
+    return (a + b)
+";
+
+            scriptEngine.Execute(code, scriptScope);
+
+            // 파이썬 엔진에서 해석된 AddFunc 참조를 dynamic 변수로 받고,
+            dynamic addFunc = scriptScope.GetVariable("AddFunc");
+
+            // dynamic 변수를 마치 델리게이트 타입인 것처럼 메서드를 호출
+            // 결과적으로 C#에서 파이썬의 함수를 직접 실행
+
+            int nResult = addFunc(5, 10);
+            Console.WriteLine(nResult);
+        }
+    }
+}

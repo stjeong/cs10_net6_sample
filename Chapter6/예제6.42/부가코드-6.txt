@@ -1,0 +1,40 @@
+﻿
+/* ================= 6.8.2.2 System.Data.SqlClient.SqlCommand ================= */
+
+using System;
+using System.Configuration;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string connectionString = ConfigurationManager.ConnectionStrings["TestDB"].ConnectionString;
+
+        using (SqlConnection sqlCon = new SqlConnection())
+        {
+            sqlCon.ConnectionString = connectionString;
+
+            // DB에 연결하고,
+            sqlCon.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandText = "INSERT INTO MemberInfo(Name, Birth, Email, Family) VALUES('Fox', '1970-01-25', 'fox@gmail.com', 5)";
+
+            int affectedCount = cmd.ExecuteNonQuery();
+            Console.WriteLine(affectedCount); // 출력 결과: 1
+
+
+            cmd = new SqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandText = "UPDATE MemberInfo SET Family=3 WHERE Email = 'fox@gmail.com'";
+            cmd.ExecuteNonQuery();
+
+            cmd = new SqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandText = "DELETE FROM MemberInfo WHERE Email = 'fox@gmail.com'";
+            cmd.ExecuteNonQuery();
+        }
+    }
+}

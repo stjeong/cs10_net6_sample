@@ -1,0 +1,25 @@
+﻿
+/* ================= 5.4.2.2 가비지 수집기 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Program pg = new Program();
+        Console.WriteLine(GC.GetGeneration(pg)); // 출력 결과: 0
+
+        object obj = new object();
+        Console.WriteLine(GC.GetGeneration(obj)); // 출력 결과: 0
+
+        GC.Collect(); // GC 수집을 수행
+        Console.WriteLine(GC.GetGeneration(obj)); // 출력 결과: 1
+
+        GC.Collect(); // GC 수집을 수행
+        Console.WriteLine(GC.GetGeneration(obj)); // 출력 결과: 2
+
+        GC.Collect(); // GC 수집을 수행
+        Console.WriteLine(GC.GetGeneration(obj)); // 출력 결과: 2
+    }
+}

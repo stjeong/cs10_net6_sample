@@ -1,0 +1,28 @@
+﻿
+/* ================= 6.5.1 System.IO.FileStream ================= */
+
+using System;
+using System.IO;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 다른 프로그램에서 test.log 파일을 읽는 것이 가능
+        using (FileStream fs = new FileStream("test.log", FileMode.Append))
+        using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+        {
+            sw.WriteLine("Hello World");
+            Console.ReadLine();
+        }
+
+        // 다른 프로그램에서 test.log 파일을 읽을 수 없음
+        using (FileStream fs = new FileStream("test.log", FileMode.Append, FileAccess.Write, FileShare.None))
+        using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+        {
+            sw.WriteLine("Hello World");
+            Console.ReadLine();
+        }
+    }
+}

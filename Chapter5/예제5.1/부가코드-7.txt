@@ -1,0 +1,18 @@
+﻿
+/* ================= 5.1.2.3 연산자 우선순위 ================= */
+
+using System;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (true || false && false)
+            {
+                Console.WriteLine("evaluated.");
+            }
+        }
+    }
+}

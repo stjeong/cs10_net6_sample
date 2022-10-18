@@ -1,0 +1,36 @@
+﻿/* ================= 5.1.1.4 특성 - 사용자 정의 특성 ================= */
+
+using System;
+
+/*
+개발자: 홍길동
+*/
+
+public class Dummy { }
+
+class AuthorAttribute : System.Attribute
+{
+}
+
+[AuthorAttribute]
+class Dummy1
+{
+}
+
+[Author] // C#에서는 Attribute 접미사를 생략해도 된다.
+class Dummy2
+{
+}
+
+[Author()] // 마치 new Author();처럼 생성자를 표현하는 구문도 사용할 수 있다.
+class Dummy3
+{
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        AuthorAttribute attr = new AuthorAttribute(); // 코드로 생성하는 것도 가능
+    }
+}

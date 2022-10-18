@@ -1,0 +1,23 @@
+﻿
+/* ================= 6.5.1 System.IO.FileStream ================= */
+
+using System;
+using System.IO;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        using (FileStream fs = new FileStream(Environment.CurrentDirectory + @"\test.log", FileMode.Create))
+        {
+            // …… [생략] ……
+        }
+
+        Environment.CurrentDirectory = "C:\\temp";
+        using (FileStream fs = new FileStream("test.log", FileMode.Create))
+        {
+            // …… [생략] ……
+        }
+    }
+}

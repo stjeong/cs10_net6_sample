@@ -1,0 +1,12 @@
+﻿
+/* ================= 5.2.5 플랫폼(x86, x64, AnyCPU) 선택 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("64 bit process: " + Environment.Is64BitProcess);
+    }
+}

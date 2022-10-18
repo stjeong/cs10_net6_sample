@@ -1,0 +1,15 @@
+﻿
+/* ================= 8.8.1.1 람다 식을 위한 전용 델리게이트 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 처음 두 int, int 타입은 인자 두 개에 대응되고, 마지막 int 타입은 반환값에 대응
+        Func<int, int, int> myFunc = (a, b) => a + b;
+
+        Console.WriteLine("10 + 2 == " + myFunc(10, 2)); // 출력 결과: 10 + 2 == 12
+    }
+}

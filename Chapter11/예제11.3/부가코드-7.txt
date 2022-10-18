@@ -1,0 +1,38 @@
+﻿/* ================= 11.8 예외 필터 ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        try
+        {
+            // 코드
+        }
+        catch (Exception e)
+        {
+            Log(e);
+            throw;
+        }
+    }
+
+    void SomeMethod()
+    {
+        try
+        {
+            // 코드
+        }
+        catch (Exception e) when (Log(e))
+        {
+            // 이 예외 핸들러는 절대로 선택되지 않는다.
+        }
+    }
+
+    static bool Log(Exception e)
+    {
+        Console.WriteLine(e.ToString()); // 발생한 예외 인스턴스를 다룰 수 있다.
+        return false;
+    }
+}

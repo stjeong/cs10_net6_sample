@@ -1,0 +1,29 @@
+﻿
+/* ================= 11.6 nameof 연산자  ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        OutputPerson("Anderson", 47);
+
+        Console.WriteLine();
+
+        OutputPerson2("Anderson", 47);
+    }
+
+    static void OutputPerson(string name, int age)
+    {
+        Console.WriteLine($"name == {name}");
+        Console.WriteLine($"age == {age}");
+    }
+
+    static void OutputPerson2(string name, int age)
+    {
+        Console.WriteLine($"{nameof(name)} == {name}");
+        Console.WriteLine($"{nameof(age)} == {age}");
+    }
+}
+

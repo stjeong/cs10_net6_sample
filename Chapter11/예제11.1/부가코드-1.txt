@@ -1,0 +1,14 @@
+﻿
+/* ================= 11.3 using static 구문을 이용한 타입명 생략 ================= */
+
+using System;
+using static System.Console;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("test1"); // 기존처럼 타입명을 함께 쓸 수도 있고,
+        WriteLine("test2"); // 타입명을 생략할 수도 있다.
+    }
+}

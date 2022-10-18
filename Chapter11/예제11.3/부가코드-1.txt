@@ -1,0 +1,25 @@
+﻿
+/* ================= 11.6 nameof 연산자  ================= */
+
+using System;
+using System.Diagnostics;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string txt = nameof(System.Console);
+        Console.WriteLine(txt);
+
+        OutputPerson("Anders");
+    }
+
+    static void OutputPerson(string name)
+    {
+        StackFrame sf = new StackFrame();
+
+        System.Reflection.ParameterInfo[] parameters = sf.GetMethod().GetParameters();
+
+        string nameId = parameters[0].Name; Console.WriteLine(nameId + ": " + name);
+    }
+}

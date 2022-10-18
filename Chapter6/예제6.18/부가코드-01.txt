@@ -1,0 +1,19 @@
+﻿
+/* ================= 6.5.2 System.IO.File / System.IO.FileInfo ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string text = new string('c', 20); // 문자 c를 20개 반복한 문자열을 생성
+
+        File.WriteAllText("test.log", text);
+
+        string clone = File.ReadAllText("test.log");
+
+        Console.WriteLine(clone);
+    }
+}

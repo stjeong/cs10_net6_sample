@@ -1,0 +1,27 @@
+﻿
+using System;
+
+/* ================= 3.5.3.2 continue 문 ================= */
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int sum = 0;
+            int n = 1;
+
+            while (n++ <= 1000)
+            {
+                if ((n % 2) != 0)
+                {
+                    continue; // sum += n; 구문을 건너뛰고, while 문의 조건식 평가로 실행을 옮긴다.
+                }
+                sum += n;
+            }
+
+            Console.WriteLine(sum);
+        }
+    }
+}

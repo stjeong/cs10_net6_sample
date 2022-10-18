@@ -1,0 +1,35 @@
+﻿
+/* ================= 6.2.1 System.String ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        {
+            string txt = "Hello {0}: {1}";
+            Console.WriteLine(txt, "World", "Anderson");
+        }
+
+        {
+            string txt = "{2} {0} == {0}: {1}";
+            Console.WriteLine(txt, "Hello", "World", "Hi");
+        }
+
+        {
+            string txt = "{0} * {1} == {2}";
+            Console.WriteLine(txt, 5, 6, 5 * 6);
+        }
+
+        {
+            string txt = "{0,-10} * {1} == {2,10}";
+            Console.WriteLine(txt, 5, 6, 5 * 6);
+        }
+
+        {
+            string txt = "날짜: {0,-20:D}, 판매 수량: {1,15:N}";
+            Console.WriteLine(txt, DateTime.Now, 267);
+        }
+    }
+}

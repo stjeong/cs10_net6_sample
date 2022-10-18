@@ -1,0 +1,36 @@
+﻿
+/* ================= 4.5.1.4 인터페이스 ================= */
+
+interface IMonitor
+{
+    void TurnOn();
+    int Inch { get; set; } // 프로퍼티 get/set 포함
+    int Width { get; } // get만 포함하는 것도 가능
+}
+
+class Notebook : IMonitor
+{
+    public void TurnOn() { }
+
+    int inch;
+    public int Inch
+    {
+        get { return inch; }
+        set { inch = value; }
+    }
+
+    int width;
+    public int Width { get { return width; } }
+}
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Notebook notebook = new Notebook();
+            notebook.TurnOn();
+        }
+    }
+}

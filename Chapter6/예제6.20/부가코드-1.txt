@@ -1,0 +1,20 @@
+﻿
+/* ================= 6.6.1 System.Threading.Thread ================= */
+
+using System;
+using System.Threading;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Thread t = new Thread(threadFunc);
+        t.Start(10);
+    }
+
+    static void threadFunc(object initialValue)
+    {
+        int intValue = (int)initialValue;
+        Console.WriteLine(intValue); // 출력 결과: 10
+    }
+}

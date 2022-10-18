@@ -1,0 +1,20 @@
+﻿
+/* ================= 6.5.1 System.IO.FileStream ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        using (FileStream fs = new FileStream("test.log", FileMode.Create))
+        {
+            BinaryWriter bw = new BinaryWriter(fs);
+            bw.Write("Hello World" + Environment.NewLine);
+            bw.Write("Anderson" + Environment.NewLine);
+            bw.Write(32000);
+            bw.Flush();
+        }
+    }
+}

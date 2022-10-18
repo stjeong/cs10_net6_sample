@@ -1,0 +1,27 @@
+﻿/* ================= 6.9 리플렉션 ================= */
+
+using System;
+using System.Reflection;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        AppDomain currentDomain = AppDomain.CurrentDomain;
+        Console.WriteLine("Current Domain Name: " + currentDomain.FriendlyName);
+
+        foreach (Assembly asm in currentDomain.GetAssemblies())
+        {
+            Console.WriteLine("    " + asm.FullName);
+            foreach (Type type in asm.GetTypes())
+            {
+                Console.WriteLine("        " + type.FullName);
+
+                foreach (MemberInfo memberInfo in type.GetMembers())
+                {
+                    Console.WriteLine("            " + memberInfo.Name);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+﻿
+/* ================= 6.5.3 System.IO.Directory / System.IO.DirectoryInfo ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string targetPath = @"C:\Windows\Microsoft.NET\Framework";
+
+        foreach (string txt in Directory.GetFiles(targetPath))
+        {
+            Console.WriteLine(txt);
+        }
+    }
+}

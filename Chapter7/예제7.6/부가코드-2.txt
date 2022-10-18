@@ -1,0 +1,37 @@
+﻿
+/* ================= 7.5 부분(partial) 클래스 ================= */
+
+using System;
+
+/*
+class Person
+{
+    string _name;
+    int _age;
+    public string Name { get { return _name; } set { _name = value; } }
+    public int Age { get { return _age; } set { _age = value; } }
+}
+*/
+
+partial class Person
+{
+    string _name;
+    public string Name { get { return _name; } set { _name = value; } }
+}
+
+partial class Person
+{
+    int _age;
+    public int Age { get { return _age; } set { _age = value; } }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Person person = new Person();
+
+        person.Name = "My";
+        person.Age = 16;
+    }
+}

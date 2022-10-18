@@ -1,0 +1,21 @@
+﻿
+/* ================= 10.2 비동기 호출 ================= */
+
+using System;
+using System.IO;
+using System.Text;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        using (FileStream fs = new FileStream(@"C:\windows\system32\drivers\etc\HOSTS", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)) 
+        {
+            byte[] buf = new byte[fs.Length];
+            fs.Read(buf, 0, buf.Length);
+            // 스레드가 Read 메서드를 완료한 후 파일의 내용을 화면에 출력하는 코드를 순차적으로 실행
+            string txt = Encoding.UTF8.GetString(buf);
+            Console.WriteLine(txt);
+        }
+    }
+}

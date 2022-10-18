@@ -1,0 +1,25 @@
+﻿
+/* ================= 5.3.2 예외 처리기 ================= */
+
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int divisor = 0;
+        try
+        {
+            int quotient = 10 / divisor;
+        }
+        catch (System.DivideByZeroException e)
+        {
+            Console.WriteLine(e.Message);
+            Console.WriteLine(e.Source);
+            Console.WriteLine(e.StackTrace);
+            Console.WriteLine("----------------");
+            Console.WriteLine(e.ToString());
+        }
+    }
+}

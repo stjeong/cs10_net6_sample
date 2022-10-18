@@ -1,0 +1,30 @@
+﻿
+/* ================= 11.4 null 조건 연산자 ================= */
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string[] lines = GetLines();
+        string firstElement = lines?[0]; // lines != null이면 lines[0] 요소를 반환
+
+        Console.WriteLine(firstElement);
+    }
+
+    private static string[] GetLines()
+    {
+        string[] lines = new string[]
+        {
+            "My",
+            "World",
+            null,
+            "Welcome",
+            "To"
+        };
+
+        return lines;
+    }
+}

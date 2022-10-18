@@ -1,0 +1,30 @@
+﻿
+/* ================= 4.5.2.1 읽기 전용 필드 ================= */
+
+using System;
+
+public class Point
+{
+    int x, y;
+
+    public int X { get { return x; } }
+    public int Y { get { return y; } }
+
+    public Point(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Point pt = new Point(5, 10);
+            Point pt2 = new Point(pt.X + 1, pt.Y + 1);
+        }
+    }
+}

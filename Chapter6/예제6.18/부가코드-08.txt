@@ -1,0 +1,19 @@
+﻿
+/* ================= 6.5.4 System.IO.Path ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 크기가 0인 임시 파일을 생성하고 그 경로를 반환한다.
+        string createdTempFilePath = Path.GetTempFileName();
+        Console.WriteLine(createdTempFilePath);
+
+        // 임시 파일을 생성하지 않고 중복될 확률이 낮은 임시 파일 경로를 구한다.
+        string tempFilePath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+        Console.WriteLine(tempFilePath);
+    }
+}

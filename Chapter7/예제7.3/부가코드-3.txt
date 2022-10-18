@@ -1,0 +1,23 @@
+﻿
+/* ================= 7.2 ?? 연산자 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string txt = null;
+
+        if (txt == null)
+        {
+            Console.WriteLine("(null)");
+        }
+        else
+        {
+            Console.WriteLine(txt);
+        }
+
+        Console.WriteLine(txt ?? "(null)");
+    }
+}

@@ -1,0 +1,36 @@
+﻿
+
+/* 7.1.1 형식 매개변수에 대한 제약 조건 */
+
+using System;
+
+public class Utility
+{
+    public static int Max(int item1, int item2)
+    {
+        if (item1.CompareTo(item2) >= 0)
+        {
+            return item1;
+        }
+
+        return item2;
+    }
+
+    public static T Max<T>(T item1, T item2)
+    {
+        if (item1.CompareTo(item2) >= 0) // 컴파일 오류 발생!
+        {
+            return item1;
+        }
+
+        return item2;
+    }
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+    }
+}

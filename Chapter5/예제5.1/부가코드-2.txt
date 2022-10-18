@@ -1,0 +1,33 @@
+﻿
+/* ================= 5.1.1.4 특성 - 특성이 적용될 대상을 제한 ================= */
+
+using System;
+using System.Runtime.InteropServices;
+
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+class AuthorAttribute : System.Attribute
+{
+    string name;
+    public AuthorAttribute(string name)
+    {
+        this.name = name;
+    }
+
+    int _version;
+    public int Version
+    {
+        get { return _version; }
+        set { _version = value; }
+    }
+}
+
+[type: Author("Tester")]
+class Program
+{
+    [method: Author("Tester")]
+    // [MarshalAs(UnmanagedType.I4)]
+    [return: MarshalAs(UnmanagedType.I4)]
+    static void Main(string[] args)
+    {
+    }
+}

@@ -1,0 +1,29 @@
+﻿
+/* ================= 8.5 익명 타입 ================= */
+
+using System;
+
+// 익명 타입 구문으로 C# 컴파일러에 의해 생성된 클래스
+internal sealed class AnonymousType0<T1, T2>
+{
+    private readonly T1 V1Field;
+    private readonly T2 V2Field;
+
+    public AnonymousType0(T1 Count, T2 Title)
+    {
+        V1Field = Count;
+        V2Field = Title;
+    }
+
+    public T1 Count { get { return V1Field; } }
+    public T2 Title { get { return V2Field; } }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 익명 클래스 구문은 C# 컴파일러가 생성한 타입을 사용하는 구문으로 확장됨
+        var p = new AnonymousType0<int, string>(10, "test");
+    }
+}

@@ -1,0 +1,43 @@
+﻿
+/* ================= 11.7 Dictionary 타입의 인덱스 초기화 ================= */
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 컬렉션 초기화 구문
+        {
+            var weekends = new Dictionary<int, string>
+            {
+                { 0, "Sunday" },
+                { 6, "Saturday" },
+            };
+        }
+
+        // 컬렉션 초기화 구문이 컴파일 후 생성되는 코드
+        {
+            Dictionary<int, string> weekends = new Dictionary<int, string>();
+            weekends.Add(0, "Sunday");
+            weekends.Add(6, "Saturday");
+        }
+
+        // 인덱스 초기화 구문
+        {
+            var weekends = new Dictionary<int, string>
+            {
+                [0] = "Sunday",
+                [6] = "Saturday",
+            };
+        }
+
+        // 인덱스 초기화 구문이 컴파일 후 생성되는 코드
+        {
+            Dictionary<int, string> weekends = new Dictionary<int, string>();
+            weekends[0] = "Sunday";
+            weekends[6] = "Saturday";
+        }
+    }
+}

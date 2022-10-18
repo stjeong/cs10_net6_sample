@@ -1,0 +1,36 @@
+﻿
+/* ================= 6.5.2 System.IO.File / System.IO.FileInfo ================= */
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        PrepareSample();
+
+        FileInfo source = new FileInfo("test.log");
+        FileInfo target = new FileInfo("c:\\temp\\test.dat");
+
+        if (target.Exists == true)
+        {
+            target.Delete();
+        }
+
+        source.MoveTo(target.FullName);
+    }
+
+    private static void PrepareSample()
+    {
+        // 예제를 위한 사전 작업
+        using (FileStream fs = new FileStream("test.log", FileMode.Create))
+        {
+            BinaryWriter bw = new BinaryWriter(fs);
+            bw.Write("Hello World" + Environment.NewLine);
+            bw.Flush();
+        }
+
+        File.Delete("c:\\temp\\test.dat");
+    }
+}

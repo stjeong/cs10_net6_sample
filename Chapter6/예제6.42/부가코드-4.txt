@@ -1,0 +1,22 @@
+﻿
+/* ================= 6.8.2.1 System.Data.SqlClient.SqlConnection ================= */
+
+using System;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        SqlConnection sqlCon = new SqlConnection();
+        sqlCon.ConnectionString = @"Data Source=.\SQLEXPRESS; Initial Catalog=TestDB;User ID=sa;Password=pw@2013";
+
+        // DB에 연결하고,
+        sqlCon.Open();
+
+        // …… [DB에 연결된 동안 DB 쿼리 실행] ……
+        // 연결을 닫는다.
+
+        sqlCon.Close();
+    }
+}

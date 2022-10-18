@@ -1,0 +1,37 @@
+﻿
+/* ================= 4.5.1.4 인터페이스 - 인터페이스를 이용한 콜백 구현 ================= */
+
+using System;
+
+interface ISource
+{
+    int GetResult(); // 콜백용으로 사용될 메서드를 인터페이스로 분리한다.
+}
+
+class Source : ISource
+{
+    public int GetResult() { return 10; }
+
+    public void Test()
+    {
+        Target target = new Target();
+        target.Do(this);
+    }
+}
+
+class Target
+{
+    public void Do(ISource obj) // Source 타입이 아닌 ISource 인터페이스를 받는다.
+    {
+        Console.WriteLine(obj.GetResult()); // 콜백 메서드 호출
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Source source = new Source();
+        source.Test();
+    }
+}

@@ -1,0 +1,30 @@
+﻿
+/* ================= 4.5.1.5 구조체 - ref 예약어 ================= */
+
+using System;
+
+struct Vector
+{
+    public int X;
+    public int Y;
+}
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int value1; // 값이 없으므로 ref 인자로 전달할 수 없음
+            string text = null; // null값을 가지므로 ref 인자로 전달 가능
+
+            int value2;
+            value2 = 5; // 메서드 호출 전에 값을 가진다면 ref 인자로 전달 가능
+
+            Vector vt;
+            vt.X = 5; // X, Y가 포함된 Vector 구조체에 Y 값이 초기화되지 않았으므로 ref 인자로 부적절
+
+            Vector vt2 = new Vector(); // X, Y 필드가 0으로 초기화됐으므로 ref 인자 가능
+        }
+    }
+}

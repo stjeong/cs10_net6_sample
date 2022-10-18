@@ -1,0 +1,23 @@
+﻿
+/* ================= 5.1.1.1 전처리기 지시문 ================= */
+
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string txt = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(txt) == false)
+        {
+            Console.WriteLine("사용자 입력: " + txt);
+        }
+#if OUTPUT_LOG
+        else
+        {
+            Console.WriteLine("입력되지 않음");
+        }
+#endif
+    }
+}

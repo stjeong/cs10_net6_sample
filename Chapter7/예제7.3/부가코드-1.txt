@@ -1,0 +1,63 @@
+﻿
+
+/* ================= 7.1.1 형식 매개변수에 대한 제약 조건 ================= */
+
+using System;
+using System.Runtime.InteropServices;
+
+class Program
+{
+    /*
+    public static int GetSizeOf<T>(T item)
+    {
+        return Marshal.SizeOf(item);
+    }
+    */
+
+    public static int GetSizeOf<T>(T item) where T : struct
+    {
+        return Marshal.SizeOf(item);
+    }
+
+    /*
+    public static void CheckNull<T>(T item)
+    {
+        if (item == null)
+        {
+            throw new ArgumentNullException();
+        }
+    }
+    */
+
+    public static void CheckNull<T>(T item) where T : class
+    {
+        if (item == null)
+        {
+            throw new ArgumentNullException();
+        }
+    }
+
+    public static T AllocateIfNull<T>(T item) where T : class, new()
+    {
+        if (item == null)
+        {
+            item = new T();
+        }
+
+        return item;
+    }
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine(GetSizeOf(0.5f)); // float 타입이므로 4
+        Console.WriteLine(GetSizeOf(4m)); // decimal 타입이므로 16
+
+        // Console.WriteLine(GetSizeOf("My")); // 컴파일 오류 발생
+
+        // CheckNull 사용 예제
+        int a = 5;
+        string b = "My";
+        // CheckNull(a); // 컴파일 오류
+        CheckNull(b); // 컴파일: 정상
+    }
+}

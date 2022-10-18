@@ -1,0 +1,23 @@
+﻿
+
+/* ================= 6.7.5.4 HTTP 통신 ================= */
+
+using System;
+using System.Net;
+using System.Net.Sockets;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+        IPAddress ipAddr = Dns.GetHostEntry("www.naver.com").AddressList[0];
+        EndPoint serverEP = new IPEndPoint(ipAddr, 80);
+        socket.Connect(serverEP);
+
+        // …… HTTP 프로토콜 통신 ……
+
+        socket.Close();
+    }
+}

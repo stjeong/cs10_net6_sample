@@ -1,0 +1,60 @@
+﻿
+/* ================= 11.8 예외 필터 ================= */
+
+// 예외 필터를 사용하는 경우의 처리
+
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        try
+        {
+            throw new FileNotFoundException("test.txt");
+        }
+        catch (FileNotFoundException e) when (Process(e)) { }
+        catch (Exception e) when (Process(e)) { }
+    }
+
+    private static bool Process(Exception e)
+    {
+        Console.WriteLine(e.ToString());
+        return false;
+    }
+}
+
+// 예외 필터를 사용하지 않는 경우의 처리
+
+//using System;
+//using System.IO;
+
+//class Program
+//{
+//    static void Main(string[] args)
+//    {
+//        try
+//        {
+//            try
+//            {
+//                throw new FileNotFoundException("test.txt");
+//            }
+//            catch (FileNotFoundException e)
+//            {
+//                Process(e);
+//                throw;
+//            }
+//        }
+//        catch (Exception e)
+//        {
+//            Process(e);
+//            throw;
+//        }
+//    }
+
+//    private static void Process(Exception e)
+//    {
+//        Console.WriteLine(e.ToString());
+//    }
+//}
